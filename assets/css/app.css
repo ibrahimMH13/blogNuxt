@@ -6,3 +6,10 @@
   border: 1px solid transparent;
   background-repeat: no-repeat;
 }*/
+
+ .fade-enter-active,.fade-leave-active{
+   transition: opacity 0.5s;
+ }
+.fade-enter,.fade-leave-to{
+opacity: 0;
+}

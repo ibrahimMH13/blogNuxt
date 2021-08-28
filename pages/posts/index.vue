@@ -1,6 +1,8 @@
 <template>
     <div class="flex text-center justify-center align-middle">
-      <post-list />
+    <client-only>
+      <post-list :posts="loadedPosts"/>
+    </client-only>
     </div>
 </template>
 <script>
@@ -10,7 +12,13 @@
         postList
       },
         name: "index",
-       layout:'mainTheme'
+       layout:'mainTheme',
+      computed:{
+        loadedPosts(){
+          return  this.$store.getters.loadedPosts;
+        }
+      }
+
     }
 </script>
 

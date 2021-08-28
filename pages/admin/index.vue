@@ -10,7 +10,7 @@
       </section>
       <section class="posts">
         <h1 class="text-3xl border-8 mt-6">Posts list</h1>
-         <post-list />
+         <post-list :posts="loadedPosts" isAdmin/>
       </section>
     </section>
 </template>
@@ -21,6 +21,15 @@
         name: "admin-page-index",
       components: {PostList},
       layout: 'mainTheme',
+      data(){
+          return{
+          }
+      },
+      computed:{
+        loadedPosts(){
+          return  this.$store.getters.loadedPosts;
+        }
+      }
     }
 </script>
 

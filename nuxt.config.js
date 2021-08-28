@@ -38,8 +38,20 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
   ],
-
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+  loading: {
+    color: 'blue',
+    height: '5px'
+  },
+  env:{
+  baseUrl:  process.env.BASE_URL || 'https://nuxt-2c9ef-default-rtdb.firebaseio.com'
+  },
+//  srcDir:"/app-client" change main folder for app
+  transition:{
+    //for animation for apge
+    name:'fade',
+    mode:"out-in"
   }
 }

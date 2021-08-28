@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="'/posts/'+id" class="rounded-md border m-5 p-3 border-2 w-full ">
+  <nuxt-link :to="generateLink" class="rounded-md border m-5 p-3 border-2 w-full ">
     <article >
       <div class="max-h-60 h-60"
            :style="{background:' url('+img+')  no-repeat center center fixed'}">
@@ -18,7 +18,11 @@
         props:{
           id:{
             required:true,
-            type:Number,
+            type:String,
+          },
+          isAdmin: {
+            required:true,
+            type:Boolean
           },
           title:{
             required:true,
@@ -33,6 +37,11 @@
             type:String,
           }
         },
+        computed:{
+          generateLink(){
+           return  this.isAdmin?`/admin/posts/${this.id}`:`/posts/${this.id}`;
+          }
+        }
     }
 </script>
 

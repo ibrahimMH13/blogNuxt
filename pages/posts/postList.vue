@@ -1,20 +1,13 @@
 <template>
   <section class="w-1/2 mt-10 items-center justify-center  m-auto">
     <ClientOnly>
-      <card :id="1"
-            :title="'that a reader will be sasas distracted 11111'"
-            :txt="'that a reader will be sasas distracted'"
-            :img="'https://i.ytimg.com/vi/ZjT7nLCiGvU/maxresdefault.jpg'"
-      />
-      <card :id="2"
-            :title="'that a reader will be sasas distracted 222'"
-            :txt="'that a reader will be sasas distracted'"
-            :img="'https://i.ytimg.com/vi/ZjT7nLCiGvU/maxresdefault.jpg'"
-      />
-      <card :id="3"
-            :title="'that a reader will be sasas distracted 3333'"
-            :txt="'that a reader will be sasas distracted'"
-            :img="'https://i.ytimg.com/vi/ZjT7nLCiGvU/maxresdefault.jpg'"
+      <card v-for="post in posts"
+            :key="post.id"
+            :is-admin="isAdmin"
+            :id="post.id"
+            :title="post.title"
+            :txt="post.content"
+            :img="post.img"
       />
     </ClientOnly>
   </section>
@@ -27,6 +20,16 @@
         name: "postList",
       components:{
           card
+      },
+      props:{
+          isAdmin:{
+            type:Boolean,
+            default:false,
+          },
+        posts:{
+            type: Array,
+            required:true
+        }
       }
     }
 </script>
